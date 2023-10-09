@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Discrete &#8212; floulib 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DistToPi" href="DistToPi.html" />
+    <link rel="prev" title="Defuzzify" href="Defuzzify.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="discrete">
+<h1>Discrete<a class="headerlink" href="#discrete" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="floulib.Discrete">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floulib.</span></span><span class="sig-name descname"><span class="pre">Discrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a></p>
+<p>This class contains methods to perform operations on discrete
+fuzzy subsets.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Discrete is a subclass of <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>, therefore all methods in <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>
+may be used.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> (<em>Tuple</em><em>(</em><em>str</em><em>, </em><em>float</em><em>) </em><em>| </em><em>Tuple</em><em>(</em><em>str</em><em>, </em><em>float</em><em>) </em><em>| </em><em>numpy.ndarray</em><em> | </em><em>str</em>) – <ul>
+<li><p>If tuples are provided, the first element is the item of the
+universe of discourse, the second element is the grade of
+membership.</p></li>
+<li><p>If only one argument is provided and its type is numpy.ndarray,
+a discrete fuzzy subset is generated. Its universe of discourse
+is the argument and the grades of membership are equal to 0.</p></li>
+<li><p>If there are several arguments which are not tuples a discrete
+subset is generated. Its universe of discourse
+is the argument and the grades of membership are equal to 0.</p></li>
+</ul>
+</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – The label associated with the discrete fuzzy subset. The default is ‘’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised is one argument is provided and is not an instance
+    of numpy.ndarray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>Parameters are tuple on linguistic universe of discourse</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="go">0.500/a + 0.300/b</span>
+</pre></div>
+</div>
+<p>Parameters are tuple on numeric universe of discourse</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="go">0.800/1 + 0.400/2</span>
+</pre></div>
+</div>
+<p>Parameter type is numpy.ndarray</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">0.000/0 + 0.000/1 + 0.000/2 + 0.000/3 + 0.000/4 + 0.000/5</span>
+</pre></div>
+</div>
+<p>Parameter types are str</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="go">0.000/x + 0.000/y + 0.000/z</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.composition">
+<span class="sig-name descname"><span class="pre">composition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.composition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the image of the input x by a relation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete"><em>Discrete</em></a>) – The inout discrete fuzzy set.</p></li>
+<li><p><strong>relation</strong> (<em>function</em>) – The relation  must have two parameters. The first one is a tuple
+which contains the components of the universe of discourse of the
+inputs. The second one is the output element.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if x is not an instance of <a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete"><code class="xref py py-class docutils literal notranslate"><span class="pre">Discrete</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Computes the image of A by the function y=x^2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">composition</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">relation</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">0.100/0 + 0.300/1 + 0.000/2 + 0.000/3 + 0.500/4 + 0.000/5 + 0.000/6</span>
+<span class="go">+ 0.000/7 + 0.000/8 + 0.200/9</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.composition.png" src="_images/Discrete.composition.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the alpha-cut of a discrete fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alpha</strong> (<em>float</em>) – The level of the cut.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The alpha cut.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="go">[&#39;a&#39; &#39;b&#39; &#39;c&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.cut_strict">
+<span class="sig-name descname"><span class="pre">cut_strict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.cut_strict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the strict alpha-cut of a discrete fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alpha</strong> (<em>float</em>) – The level of the cut.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The strict alpha cut.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">cut_strict</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="go">[&#39;b&#39; &#39;c&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.extension">
+<span class="sig-name descname"><span class="pre">extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Zadeh’s extension principle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete"><em>Discrete</em></a>) – The input discrete fuzzy set.</p></li>
+<li><p><strong>func</strong> (<em>function</em>) – The function must have two parameters. The first one is a tuple
+which contains the components of the universe of discourse of the
+inputs. The second one is the output element.</p></li>
+<li><p><strong>precision</strong> (<em>float</em><em>, </em><em>optional</em>) – The precision for accepting, for a given y, x as f-1(y). Default is 0.01.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if x is not an instance of <a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete"><code class="xref py py-class docutils literal notranslate"><span class="pre">Discrete</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Computes the sum of A by B</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="p">,</span> <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">0.100/0 + 0.200/1 + 0.300/2 + 0.500/3 + 0.200/4 + 0.200/5 + 0.100/6</span>
+<span class="go">+ 0.000/7 + 0.000/8 + 0.000/9 + 0.000/10</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.extension1.png" src="_images/Discrete.extension1.png" />
+<p>Case where the approximation is used. The choices of the steps and the precision
+are quite sensitive to obtain a valuable result.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span><span class="p">,</span> <span class="n">LR</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">E</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">E</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.extension2.png" src="_images/Discrete.extension2.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.kernel">
+<span class="sig-name descname"><span class="pre">kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the kernel a discrete fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The kernel.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">kernel</span><span class="p">())</span>
+<span class="go">[&#39;c&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.membership">
+<span class="sig-name descname"><span class="pre">membership</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.membership" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the grade of membership of an item x of the universe
+of discourse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em> | </em><em>str</em>) – Item of the universe of discourse.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – Raised if x does not belong to the universe of discourse.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Grade of membership.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">membership</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">))</span>
+<span class="go">O.3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">membership</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">0.4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.support">
+<span class="sig-name descname"><span class="pre">support</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.support" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the support of a discrete fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The support.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">support</span><span class="p">())</span>
+<span class="go">[&#39;a&#39; &#39;b&#39; &#39;c&#39; &#39;d&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.Certainty">
+<span class="sig-name descname"><span class="pre">Certainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.Certainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a certainty level to the duscrete fuzzy subset.</p>
+<p>This method is generally used with variables in rules. For this
+reason, it starts with the capital letter C.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – The certainty level.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The discrete fuzzy subset with certainty level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Certainty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A with 0.3 certainty level&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="go">0.700/a + 0.800/b + 1.000/c + 0.700/d + 0.700/e</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.Certainty.png" src="_images/Discrete.Certainty.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.Uncertainty">
+<span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an uncertainty level to the discrete fuzzy subset.</p>
+<p>This method is generally used with variables in rules. For this
+reason, it starts with the capital letter U.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>float</em>) – The uncertainty level.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The discrete fuzzy subset with uncertainty level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="Multilinear.html#floulib.Multilinear" title="floulib.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Uncertainty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A with 0.3 uncertainty level&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="go">0.500/a + 0.800/b + 1.000/c + 0.400/d + 0.300/e</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.Uncertainty.png" src="_images/Discrete.Uncertainty.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__and__">
+<span class="sig-name descname"><span class="pre">__and__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__and__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the opertor &amp; as
+the intersection of two discrete fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete"><em>Discrete</em></a>) – The RHS discrete fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the RHS operand is not an instance of <a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete"><code class="xref py py-class docutils literal notranslate"><span class="pre">Discrete</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The intersection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A &amp; B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C = A &amp; B = </span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="go">A = 0.500/a + 0.300/b</span>
+<span class="go">B = 0.600/b + 0.200/c</span>
+<span class="go">C = A &amp; B = 0.300/b</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.__and__.png" src="_images/Discrete.__and__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__or__">
+<span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__or__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the opertor | as
+the union of two discrete fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete"><em>Discrete</em></a>) – The RHS discrete fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the RHS operand is not an instance of <a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete"><code class="xref py py-class docutils literal notranslate"><span class="pre">Discrete</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The union.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">|</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A | B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C = A | B = </span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="go">A = 0.500/a + 0.300/b</span>
+<span class="go">B = 0.600/b + 0.200/c</span>
+<span class="go">C = A | B = 0.500/a + 0.600/b + 0.200/c</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.__or__.png" src="_images/Discrete.__or__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__invert__">
+<span class="sig-name descname"><span class="pre">__invert__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__invert__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the unary opertor ~ as
+the complement of a discrete fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The complement.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = ~A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C = ~A = </span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="go">A = 0.500/a + 0.300/b</span>
+<span class="go">C = ~A = 0.500/a + 0.700/b</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.__invert__.png" src="_images/Discrete.__invert__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method to compute the cartesian product of two discrete
+fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete"><em>Discrete</em></a>) – The other discrete fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the RHS operand is not an instance of <a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete"><code class="xref py py-class docutils literal notranslate"><span class="pre">Discrete</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The cartesian product.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Discrete" title="floulib.Discrete.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A * B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C = A * B = </span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="go">A = 0.500/a + 0.300/b</span>
+<span class="go">B = 0.600/b + 0.200/c</span>
+<span class="go">C = A * B = 0.500/(&#39;a&#39;, &#39;b&#39;) + 0.200/(&#39;a&#39;, &#39;c&#39;) + 0.300/(&#39;b&#39;, &#39;b&#39;) + 0.200/(&#39;b&#39;, &#39;c&#39;)</span>
+</pre></div>
+</div>
+<img alt="_images/Discrete.__mul__.png" src="_images/Discrete.__mul__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Discrete.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Discrete.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for printable string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_format</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of decimal digits. The default is 3.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>result</strong> – Printable string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Discrete</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Discrete</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">A = 0.500/a + 0.300/b</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">floulib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Any.html">Any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Defuzzify.html">Defuzzify</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Discrete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistToPi.html">DistToPi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistToPiMultilinear.html">DistToPiMultilinear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fuzzify.html">Fuzzify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LR.html">LR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operator.html">Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Multilinear.html">Multilinear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plot.html">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rectangle.html">Rectangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rule.html">Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rules.html">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Singleton.html">Singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smiley.html">Smiley</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Term.html">Term</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Terms.html">Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trapezoid.html">Trapezoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Triangle.html">Triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable.html">Variable</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="api.html">API</a><ul>
+      <li>Previous: <a href="Defuzzify.html" title="previous chapter">Defuzzify</a></li>
+      <li>Next: <a href="DistToPi.html" title="next chapter">DistToPi</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Laurent Foulloy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Discrete.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

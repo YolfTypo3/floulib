@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Multilinear &#8212; floulib 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plot" href="Plot.html" />
+    <link rel="prev" title="Operator" href="Operator.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="multilinear">
+<h1>Multilinear<a class="headerlink" href="#multilinear" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="floulib.Multilinear">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floulib.</span></span><span class="sig-name descname"><span class="pre">Multilinear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a></p>
+<p>Contains methods to perform operations on multilinear
+fuzzy subsets.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multilinear is a subclass of <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>, therefore all methods
+in <a class="reference internal" href="Plot.html#floulib.Plot" title="floulib.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> may be used.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – Several tuple containing the point of the universe of discourse
+and the grade of membership for this point.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Label associated with the multilinear fuzzy subset. The default is ‘’.</p></li>
+<li><p><strong>color</strong> (<em>matplotlib.colors</em><em>, </em><em>optional</em>) – Color associated with the multilinear fuzzy subset. The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__init__.png" src="_images/Multilinear.__init__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the alpha-cut of the multilinear fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alpha</strong> (<em>float</em>) – The level.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>alpha_cut</strong> – The alpha-cut.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<span class="go">[[1.  1.7]</span>
+<span class="go"> [2.6 3.6]]</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.cut.png" src="_images/Multilinear.cut.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.kernel">
+<span class="sig-name descname"><span class="pre">kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the kernel of the multilinear fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The kernel.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">kernel</span><span class="p">())</span>
+<span class="go">[[1.  1.5]</span>
+<span class="go"> [3.  3.5]]</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.kernel_1.png" src="_images/Multilinear.kernel_1.png" />
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">kernel</span><span class="p">())</span>
+<span class="go">[[1.  3.5]]</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.kernel_2.png" src="_images/Multilinear.kernel_2.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the maximum grade of membership.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The maximum grade of membership.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="go">0.3</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.max.png" src="_images/Multilinear.max.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.membership">
+<span class="sig-name descname"><span class="pre">membership</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.membership" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the grade of membership for x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – Point where the grade of membership is computed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Grade of membership.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">membership</span><span class="p">(</span><span class="mf">1.8</span><span class="p">))</span>
+<span class="go">0.7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.mf">
+<span class="sig-name descname"><span class="pre">mf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.mf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the grades of membership for all points in x.</p>
+<p>This method can be used as an interface with other libraries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em>) – The array of points.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>y</strong> – The grades of membership array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">mf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.mf.png" src="_images/Multilinear.mf.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the minimim grade of membership.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The maximum grade of membership.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">~</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">((</span><span class="o">~</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">0.7</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.min.png" src="_images/Multilinear.min.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.necessity">
+<span class="sig-name descname"><span class="pre">necessity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dpi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.necessity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the necessity of the multilinear fuzzy subset knowing
+the distribution of possibility dpi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dpi</strong> (<a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear"><em>Multilinear</em></a>) – The possibility distribution.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the parameter is not an instance of <a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multilinear</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The necessity.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.necessity.png" src="_images/Multilinear.necessity.png" />
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">necessity</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="go">0.40000000000000036</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.possibility">
+<span class="sig-name descname"><span class="pre">possibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dpi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.possibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the possibility of the multilinear fuzzy subset knowing the
+distribution of possibility dpi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dpi</strong> (<a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear"><em>Multilinear</em></a>) – The possibility distribution.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the parameter is not an instance of <a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multilinear</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The possibility.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.possibility.png" src="_images/Multilinear.possibility.png" />
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">possibility</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="go">0.6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.support">
+<span class="sig-name descname"><span class="pre">support</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.support" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the support of the multilinear fuzzy subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The kernel.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">support</span><span class="p">())</span>
+<span class="go">[[0.  2. ]</span>
+<span class="go"> [2.5 4. ]]</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.support_1.png" src="_images/Multilinear.support_1.png" />
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">support</span><span class="p">())</span>
+<span class="go">[[0. 4.]]</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.support_2.png" src="_images/Multilinear.support_2.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translation over the x-axis all the points whose x-coordinates
+are greater than the smallest one and smaller than the
+greatest one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delta</strong> (<em>float</em>) – The value for the translation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The translated multilinear fuzzy subset.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.translate.png" src="_images/Multilinear.translate.png" />
+<p>Points (0.5, 1.0) and (1.5, 0.0) are translated by 0.5 but
+points (0.0, 1.0) and (2.0, 0.0) are not translated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.universe">
+<span class="sig-name descname"><span class="pre">universe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.universe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the universe of discourse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em>) – The universe of discourse.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The multilinear fuzzy subset.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.Certainty">
+<span class="sig-name descname"><span class="pre">Certainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.Certainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a certainty level to the multilinear fuzzy subset.</p>
+<p>This method is generally used with variables in rules. For this
+reason, it starts with the capital letter C.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>float</em>) – The certainty level.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The multilinear fuzzy subset with certainty level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Certainty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A with 0.3 certainty level&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.Certainty.png" src="_images/Multilinear.Certainty.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.Uncertainty">
+<span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an uncertainty level to the multilinear fuzzy subset.</p>
+<p>This method is generally used with variables in rules. For this
+reason, it starts with the capital letter U.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>float</em>) – The uncertainty level.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The multilinear fuzzy subset with uncertainty level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Uncertainty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;A with 0.3 uncertainty level&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.Uncertainty.png" src="_images/Multilinear.Uncertainty.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__and__">
+<span class="sig-name descname"><span class="pre">__and__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__and__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the operator &amp; as
+the intersection of two multilinear fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear"><em>Multilinear</em></a>) – The RHS multilinear fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the RHS operand is not an instance of <a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multilinear</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The intersection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A &amp; B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__and__.png" src="_images/Multilinear.__and__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method to transform a multilinear fuzzy subset into
+a discrete fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em>) – The universe of discourse on which the transformation is
+performed.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the parameter is not an instance of numpy.ndarray.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The discrete fuzzy subset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="Discrete.html#floulib.Discrete" title="floulib.Discrete">Discrete</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__call__.png" src="_images/Multilinear.__call__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__invert__">
+<span class="sig-name descname"><span class="pre">__invert__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__invert__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the unary operator ~ as the
+complement of a multlinear fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The complement.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;B = ~Ã&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__invert__.png" src="_images/Multilinear.__invert__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__neg__">
+<span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the unary operator - as the
+opposite of a multlinear fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The opposite.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">A</span> <span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = -A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__neg__.png" src="_images/Multilinear.__neg__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__or__">
+<span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__or__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the operator | as
+the union of two multilinear fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear"><em>Multilinear</em></a>) – The RHS multilinear fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if the RHS operand is not an instance of <a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multilinear</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The union.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">|</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A | B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__or__.png" src="_images/Multilinear.__or__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__rmul__">
+<span class="sig-name descname"><span class="pre">__rmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the operator * with a number
+as the LHS operand. Its multiplies the grades of membership
+of the multilinear fuzzy subset by the LHS operand and
+truncates them to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<em>int</em><em> | </em><em>float</em>) – The LHS operand.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised the the LHS in not an instance of int or float.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__rmul__.png" src="_images/Multilinear.__rmul__.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floulib.Multilinear.__xor__">
+<span class="sig-name descname"><span class="pre">__xor__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floulib.Multilinear.__xor__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special method for using the operator ^ as
+the symetric difference of two multilinear fuzzy subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear"><em>Multilinear</em></a>) – The other multilinear fuzzy subset.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if other is not an instance of <a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multilinear</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The symetric difference.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#floulib.Multilinear" title="floulib.Multilinear.Multilinear">Multilinear</a></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">floulib</span> <span class="kn">import</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Multilinear</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Multilinear</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">LR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">^</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;C = A ^ B&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">add_plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/Multilinear.__xor__.png" src="_images/Multilinear.__xor__.png" />
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">floulib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Any.html">Any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Defuzzify.html">Defuzzify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Discrete.html">Discrete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistToPi.html">DistToPi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistToPiMultilinear.html">DistToPiMultilinear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fuzzify.html">Fuzzify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LR.html">LR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operator.html">Operator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multilinear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plot.html">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rectangle.html">Rectangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rule.html">Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Rules.html">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Singleton.html">Singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smiley.html">Smiley</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Term.html">Term</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Terms.html">Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trapezoid.html">Trapezoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Triangle.html">Triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable.html">Variable</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="api.html">API</a><ul>
+      <li>Previous: <a href="Operator.html" title="previous chapter">Operator</a></li>
+      <li>Next: <a href="Plot.html" title="next chapter">Plot</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Laurent Foulloy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Multilinear.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
