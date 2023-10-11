@@ -240,6 +240,7 @@ class Discrete(Plot):
         >>> C.label('C')
         >>> C.plot(s = 20)
         >>> print(C)
+        
         0.100/0 + 0.200/1 + 0.300/2 + 0.500/3 + 0.200/4 + 0.200/5 + 0.100/6 
         + 0.000/7 + 0.000/8 + 0.000/9 + 0.000/10
 
@@ -267,8 +268,11 @@ class Discrete(Plot):
             for i in range(len(res)):
                 for point in points_filtered:
                     y = func(point[0], res[i][0])
-                    if y is not None and abs(y - res[i][0]) < precision:
-                        res[i][1] = max(res[i][1], point[1])                          
+                    if y is not None: 
+                        if isinstance(y, numbers.Number) and abs(y - res[i][0]) < precision:
+                            res[i][1] = max(res[i][1], point[1])  
+                        elif y == res[i][0]:
+                            res[i][1] = max(res[i][1], point[1])
             return Discrete(*res)         
         
         else:

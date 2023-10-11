@@ -7,8 +7,9 @@ Created on Tue Jun  6 17:18:42 2023
 from floulib.Discrete import Discrete       
 from floulib.Term import Term
 from floulib.Terms import Terms
-import numpy as np
 import numbers
+import numpy as np
+
 
 
   

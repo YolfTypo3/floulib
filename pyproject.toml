@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "floulib"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
   { name="Laurent Foulloy", email="yolf.typo3@orange.fr" },
 ]
@@ -17,11 +17,12 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    'matplotlib >= 3.1.3',
-    'numpy >= 1.19.1',
-    'scipy >= 1.4.1',
-    'shapely >= 2.0.1'
+    'matplotlib',
+    'numpy',
+    'scipy',
+    'shapely'
 ]
 [project.urls]
+Documentation = "https://floulib.readthedocs.io/"
 "Homepage" = "https://github.com/YolfTypo3/floulib"
 "Bug Tracker" = "https://github.com/YolfTypo3/floulib/issues"
