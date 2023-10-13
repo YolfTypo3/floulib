@@ -11,8 +11,8 @@ import numpy as np
 
 class LR(Multilinear):
     """
-    Contains various methods to perform operations on LR
-    fuzzy intervals.
+    Contains various methods to perform operations on LR (Left-Right)
+    fuzzy intervals, with L(x) = R(x) = max(0, 1-x).
     
     .. note::
         

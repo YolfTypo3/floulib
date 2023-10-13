@@ -92,7 +92,7 @@ class Defuzzify:
         >>> print(u) 
         1.1666683383450254        
         
-        Defuzzification of discrete fuzzy subset.
+        Defuzzification of a discrete fuzzy subset.
         
         >>> from floulib import Defuzzify, Discrete
         >>> A = Discrete((1, 0.1), (2, 0.4), (3, 0.1)) 
