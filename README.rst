@@ -33,8 +33,8 @@ Floulib requires
 * scipy
 * shapely
 
- Installing Floulib
-===================
+Installing Floulib
+==================
 
 We recommend installing Floulib using one of the available built
 distributions, for example using ``pip```:
