@@ -21,7 +21,7 @@ by Bernadette Bouchon-Meunier, Laurent Foulloy, Mohammed Ramdani, Cépadues-Edit
 Its implements many operations on fuzzy subsets including representations of 
 membership functions (discrete, triangle, trapezoid, multilinear, LR), operations on membership functions, rules, inference,
 fuzzification, defuzzification, transformations of probability
-distributions into possibility distributions (optimal transformation for unimodal symmetric distribution, 
+distributions into possibility distributions (optimal transformation for unimodal symmetric distributions, 
 two-side normalized transformation for other unimodal distributions) and many other features.
 
 Floulib was designed for learning and teaching applications. 
@@ -43,7 +43,7 @@ Installing Floulib
 ==================
 
 We recommend installing Floulib using one of the available built
-distributions, for example using ``pip```:
+distributions, for example using ``pip``:
 
 .. code-block:: console
 
