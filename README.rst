@@ -2,6 +2,12 @@
 Floulib
 =======
 
+.. PyPI badge
+
+.. image:: https://badge.fury.io/py/floulib.svg
+   :alt: PyPI version
+   :target: https://badge.fury.io/py/floulib.svg
+    
 .. Documentation at RTD — https://readthedocs.org
 
 .. image:: https://readthedocs.org/projects/floulib/badge/?version=latest
