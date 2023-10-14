@@ -21,7 +21,7 @@ two-side normalized transformation for other unimodal distributions) and many ot
 Floulib was designed for learning and teaching applications. 
 Simplicity of use was sometimes sought to the detriment of performances.
 
-See the documentation for examples: https://floulib.readthedocs.io
+See the API reference for examples: https://floulib.readthedocs.io
 
 Requirements
 ============
