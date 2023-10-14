@@ -6,7 +6,7 @@ Floulib
 
 .. image:: https://badge.fury.io/py/floulib.svg
    :alt: PyPI version
-   :target: https://badge.fury.io/py/floulib.svg
+   :target: https://pypi.org/project/floulib/
     
 .. Documentation at RTD — https://readthedocs.org
 
