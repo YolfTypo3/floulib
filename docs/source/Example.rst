@@ -102,9 +102,9 @@ Question 2
     >>> sigma3 = 0.3
 
     >>> # Defines the arrival time in minutes
-    >>> # Events are independent, the arrival is a gaussian distribution
+    >>> # Events are independent, the arrival is a Gaussian distribution
     >>> # with a mean equal to the sum of the means and the variance equals
-    >>> # to the sum of the variance
+    >>> # to the sum of the variances
     >>> mean4 = mean1 + mean2 + mean3
     >>> sigma4 = math.sqrt(sigma1**2 + sigma2**2 + sigma3**2)
     >>> normal_dist4 = norm(mean4, sigma4)
