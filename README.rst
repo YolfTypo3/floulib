@@ -112,7 +112,7 @@ Question 1
     PI(before _meeting, arrival) = 1.0
     N(before _meeting, arrival) =  0.6666666666666714
 
-.. image:: images/Example.question1.png
+.. image:: docs/source/images/Example.question1.png
    :align: center
     
 Question 2
