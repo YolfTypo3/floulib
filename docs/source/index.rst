@@ -4,7 +4,7 @@
    :caption: User Guide
    :hidden:
 
-    Example
+   Example
 
 .. toctree::
    :caption: API Reference
