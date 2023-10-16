@@ -1,3 +1,4 @@
+=======
 Example
 =======
 
@@ -5,7 +6,7 @@ The following exercice is provided to give a short overview of floulib.
 See the API reference for other examples: https://floulib.readthedocs.io
 
 Exercice
---------
+========
  
 1) John works in Paris and takes the subway for ten stops every morning.
 In Paris, the approximate travel time is 1.3 minutes per station  
@@ -29,7 +30,7 @@ standard deviation of 1.5 minutes. The second can be modeled by a Gaussian distr
 What is the possibility and certainty that John will be on time for the meeting ?
 
 Imports and special function
-----------------------------
+============================
 
 .. code:: python
 
@@ -47,7 +48,7 @@ Imports and special function
     >>>     ax.set_xticks(xticks, labels)
 
 Question 1
-----------
+==========
 
 .. code:: python
 
@@ -87,7 +88,7 @@ Question 1
    :align: center
     
 Question 2
-----------
+==========
 
 .. code:: python
 
