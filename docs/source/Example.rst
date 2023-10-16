@@ -14,7 +14,7 @@ to the subway and from the subway to his office takes *approximately 10 minutes*
 by a triangular membership function whose support is [*w* - 1 minute, *w* + 1 minute] and whose kernel is [*w*].
 
 John has a one-hour meeting every day that starts at *almost 9:00* where *almost t* means
-that it never starts before *t* but it is certain that the meeting started at *t* + 10 minutes.
+that it never starts before *t* but it is certain that the meeting started no later than *t* + 10 minutes.
 
 What is the possibility and certainty that John will be on time for the meeting ?
 
