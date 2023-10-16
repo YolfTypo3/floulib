@@ -4,9 +4,6 @@ Example
 
 The following exercice is provided to give a short overview of floulib.
 See the API reference for other examples: https://floulib.readthedocs.io
-
-Exercice
-========
  
 1) John works in Paris and takes the subway for ten stops every morning.
 In Paris, the approximate travel time is 1.3 minutes per station  
